@@ -5,11 +5,12 @@ namespace Curso.ApiPrueba.Services.Interfaces
 {
     public interface IUsuariosServices
     {
-        #region Implementacion
-        Task<List<Usuario>> Obtener();
-        Task<bool> Agregar(UsuarioDTO agregarUsuario);
-        Task<bool> Eliminar(UsuarioDTO eliminarUsuario);
-        Task<bool> Actualizar(UsuarioDTO actualizarUsuario);
+        #region "Implementaciones"
+        Task<RespuestaGenerica<object>> Actualizar(UsuarioDTO modelo);
+        Task<RespuestaGenerica<UsuarioDTO>> Eliminar(int id);
+        Task<RespuestaGenerica<object>> Insertar(UsuarioDTO modelo);
+        Task<RespuestaGenerica<List<UsuarioDTO>>> Obtener();
         #endregion
+
     }
 }

@@ -24,26 +24,40 @@ namespace Curso.ApiPrueba.Controllers
             return Ok(usuarios);
         }
 
-        [HttpPost("CrearUsuario")] 
+        [HttpPost] 
         public async Task<IActionResult> Post(UsuarioDTO crearUser)
         {
-            var usuarios = await usuariosServices.Agregar(crearUser);
-            return Ok(usuarios);
+            var respuesta = await usuariosServices.Insertar(crearUser);
+
+            if (respuesta.Valido)
+            {
+                return Ok(respuesta);
+            }
+            return BadRequest(respuesta.Mensaje);
         }
 
-        [HttpDelete("EliminarUsuario")]
-        public async Task<IActionResult> Delete(UsuarioDTO eliminarUser)
+        [HttpDelete]
+        public async Task<IActionResult> Delete(int id)
         {
-            var usuarios = await usuariosServices.Eliminar(eliminarUser);
-            return Ok(usuarios);
+            var respuesta = await usuariosServices.Eliminar(id);
+            
+            if(respuesta.Valido)
+            {
+                return Ok(respuesta);
+            }
+            return BadRequest(respuesta.Mensaje);
         }
 
 
-        [HttpPut("ActualizarUsuario")]
+        [HttpPut]
         public async Task<IActionResult>Updated(UsuarioDTO actUser)
         {
-            var usuarios = await usuariosServices.Actualizar(actUser);
-            return Ok(usuarios);
+            var respuesta = await usuariosServices.Actualizar(actUser);
+            if (respuesta.Valido)
+            {
+                return Ok(respuesta);
+            }
+            return BadRequest(respuesta.Mensaje);
         }
 
     }
