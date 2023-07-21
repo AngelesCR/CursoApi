@@ -19,6 +19,8 @@ namespace Curso.ApiPrueba.Helpers
                 });
             });
             services.AddScoped<IUsuariosServices, UsuariosServices>();
+            services.AddScoped<IBitacoraServices, BitacoraServices>();
+            services.AddScoped<IRolesServices, RolesServices>();
 
             return services;
         }
