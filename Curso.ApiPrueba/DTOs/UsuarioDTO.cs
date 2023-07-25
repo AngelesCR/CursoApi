@@ -37,6 +37,7 @@
         public string Correo { get; set; } = null!;
 
         public string Contraseña { get; set; } = null!;
+        public string Token { get; set; } = null!;
         #endregion
     }
 

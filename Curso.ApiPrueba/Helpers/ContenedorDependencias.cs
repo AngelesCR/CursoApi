@@ -1,7 +1,9 @@
 ﻿using Curso.ApiPrueba.Model;
 using Curso.ApiPrueba.Services;
 using Curso.ApiPrueba.Services.Interfaces;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 using System.Runtime.CompilerServices;
 
 namespace Curso.ApiPrueba.Helpers
@@ -21,7 +23,8 @@ namespace Curso.ApiPrueba.Helpers
             services.AddScoped<IUsuariosServices, UsuariosServices>();
             services.AddScoped<IBitacoraServices, BitacoraServices>();
             services.AddScoped<IRolesServices, RolesServices>();
-
+            services.AddScoped<ISeguridadService, SeguridadService>();
+            services.AddScoped<ICurso, CursoServices>();
             return services;
         }
         #endregion   

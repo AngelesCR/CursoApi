@@ -126,7 +126,8 @@ namespace Curso.ApiPrueba.Services
             try
             {
                 respuesta.Objecto = await dtx.Usuarios
-                    .Select(x => new UsuarioDTO(x.Id, x.IdRol, x.Nombre, x.Apellidos, x.FechaNacimiento, x.Correo, x.Contraseña))
+                    .Select(x => new UsuarioDTO(x.Id, x.IdRol, x.Nombre, 
+                    x.Apellidos, x.FechaNacimiento, x.Correo, x.Contraseña))
                     .ToListAsync();
                 respuesta.Valido = true;
             }

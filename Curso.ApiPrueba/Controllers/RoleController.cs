@@ -1,9 +1,11 @@
 ﻿using Curso.ApiPrueba.Services;
 using Curso.ApiPrueba.Services.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Curso.ApiPrueba.Controllers
 {
+    //[Authorize]
     [ApiController]
     [Route("[Controller]")]
     public class RoleController : Controller
